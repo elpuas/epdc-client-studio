@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Generador privado de correos y propuestas de ElPuas Digital Crafts."
+    />
+    <title>Generador de comunicaciones | ElPuas Digital Crafts</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Cpath d='M17 18h30v8H25v8h18v8H25v4h22v8H17z' fill='%23d8ff00'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#editor">Ir al editor</a>
+
+    <header class="site-header">
+      <a class="brand" href="https://elpuasdigitalcrafts.com/es/" target="_blank" rel="noreferrer">
+        <img
+          src="https://elpuasdigitalcrafts.com/logos/logo-updated-150x150.webp"
+          alt="ElPuas Digital Crafts"
+          width="72"
+          height="72"
+        />
+        <span>
+          <strong>Client Studio</strong>
+          <small>Correos y propuestas</small>
+        </span>
+      </a>
+      <p class="privacy-note">Todo se genera localmente en tu navegador.</p>
+    </header>
+
+    <main class="app-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">ElPuas Digital Crafts</p>
+        <h1 id="page-title">Comunicaciones claras.<br />Presentación impecable.</h1>
+        <p>
+          Completa el formulario, revisa el resultado y descarga un HTML listo para usar.
+        </p>
+      </section>
+
+      <div class="mode-switcher" role="tablist" aria-label="Tipo de documento">
+        <button class="mode-button is-active" id="email-tab" role="tab" aria-selected="true" aria-controls="email-form" data-mode="email">
+          Reporte mensual
+        </button>
+        <button class="mode-button" id="proposal-tab" role="tab" aria-selected="false" aria-controls="proposal-form" data-mode="proposal">
+          Propuesta comercial
+        </button>
+      </div>
+
+      <section class="workspace" id="editor">
+        <div class="editor-panel">
+          <form id="email-form" class="document-form" data-document="email" aria-labelledby="email-tab">
+            <div class="section-heading">
+              <p class="step">01 / Contenido</p>
+              <h2>Reporte mensual</h2>
+            </div>
+
+            <label>
+              Idioma del documento
+              <select name="emailLanguage" id="email-language">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+                <option value="it">Italiano</option>
+              </select>
+              <span class="field-help">Cambia únicamente los títulos y textos automáticos del correo.</span>
+            </label>
+
+            <div class="form-grid two-columns">
+              <label>
+                Cliente o destinatario
+                <input name="clientName" value="Laboratorio La Catedral" autocomplete="organization" />
+              </label>
+              <label>
+                Mes del reporte
+                <input name="reportMonth" value="septiembre" />
+              </label>
+            </div>
+
+            <label>
+              Saludo
+              <input name="greeting" value="Hola," />
+            </label>
+
+            <fieldset>
+              <legend>Mantenimiento realizado</legend>
+              <div class="check-grid">
+                <label class="check-card"><input type="checkbox" name="maintenance" value="WordPress" checked /><span><strong>WordPress</strong>Núcleo actualizado</span></label>
+                <label class="check-card"><input type="checkbox" name="maintenance" value="Plugins" checked /><span><strong>Plugins</strong>Actualizaciones disponibles</span></label>
+                <label class="check-card"><input type="checkbox" name="maintenance" value="Temas" checked /><span><strong>Temas</strong>Versiones instaladas</span></label>
+                <label class="check-card"><input type="checkbox" name="maintenance" value="Respaldos" checked /><span><strong>Respaldos</strong>Copias de seguridad</span></label>
+                <label class="check-card"><input type="checkbox" name="maintenance" value="Seguridad" checked /><span><strong>Seguridad</strong>Revisión preventiva</span></label>
+              </div>
+            </fieldset>
+
+            <label>
+              Estado general
+              <textarea name="statusText" rows="4">Durante septiembre se completaron correctamente las actualizaciones disponibles del núcleo de WordPress, los plugins y los temas instalados. También se realizaron los respaldos y las revisiones de seguridad correspondientes, sin inconvenientes.</textarea>
+            </label>
+
+            <div class="subsection">
+              <h3>Reporte mensual de GoDaddy Hub</h3>
+              <label>
+                Entrega del PDF
+                <select name="reportDelivery" id="report-delivery">
+                  <option value="attached">Va adjunto al correo</option>
+                  <option value="linked">Disponible mediante un enlace</option>
+                  <option value="pending">Temporalmente pendiente</option>
+                </select>
+              </label>
+              <label id="report-url-field" hidden>
+                Enlace público al PDF
+                <input name="reportUrl" type="url" placeholder="https://.../reporte.pdf" />
+              </label>
+              <p class="field-help" id="report-delivery-help">El HTML indicará que el reporte está adjunto. Recuerda agregar el PDF en tu cliente de correo antes de enviarlo.</p>
+            </div>
+
+            <label>
+              Aviso importante <span class="optional">Opcional</span>
+              <textarea name="noticeText" rows="4" placeholder="Agrega aquí cualquier incidencia, retraso o información extraordinaria."></textarea>
+            </label>
+
+            <div class="subsection">
+              <h3>Artículo del mes</h3>
+              <label>
+                Título
+                <input name="articleTitle" value="WordPress 7.1: qué cambia y por qué importa para tu negocio" />
+              </label>
+              <label>
+                Enlace
+                <input name="articleUrl" type="url" value="https://elpuasdigitalcrafts.com/es/blog/wordpress-7-1-que-cambia-y-por-que-importa-para-tu-negocio/" />
+              </label>
+              <label>
+                Resumen
+                <textarea name="articleSummary" rows="3">El artículo presenta los principales cambios de WordPress 7.1 y explica su importancia para el mantenimiento, la seguridad y la evolución de los sitios web.</textarea>
+              </label>
+            </div>
+
+            <label>
+              Pendientes y notas <span class="optional">Un punto por línea</span>
+              <textarea name="pendingItems" rows="5">El contenido “Octubre Rosa: laboratorio clínico y toma de muestras a domicilio en San José” continúa pendiente de aprobación.
+Los materiales gráficos solicitados para acompañar la publicación fueron preparados y enviados por correo.</textarea>
+            </label>
+
+            <label>
+              Cierre
+              <textarea name="closingText" rows="5">Si desean revisar algún detalle o necesitan instrucciones para acceder al contenido completo, pueden agendar una llamada conmigo.
+
+Quedo atento a su decisión o cualquier comentario adicional.</textarea>
+            </label>
+
+            <label>
+              Enlace de pago de PayPal <span class="optional">Opcional</span>
+              <input name="paymentUrl" type="url" placeholder="https://www.paypal.com/..." />
+              <span class="field-help">Si agregas un enlace válido, el correo mostrará un botón de pago.</span>
+            </label>
+          </form>
+
+          <form id="proposal-form" class="document-form" data-document="proposal" aria-labelledby="proposal-tab" hidden>
+            <div class="section-heading">
+              <p class="step">01 / Contenido</p>
+              <h2>Propuesta por suscripción</h2>
+            </div>
+
+            <label>
+              Idioma del documento
+              <select name="proposalLanguage" id="proposal-language">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+                <option value="it">Italiano</option>
+              </select>
+              <span class="field-help">Cambia únicamente los títulos y textos automáticos de la propuesta.</span>
+            </label>
+
+            <label>
+              Punto de partida
+              <select name="proposalPreset" id="proposal-preset">
+                <option value="family">Oferta familiar — dos alternativas</option>
+                <option value="essential">Essential — $150/mes</option>
+                <option value="growth">Growth — $180/mes</option>
+                <option value="premium">Premium — $250/mes</option>
+                <option value="custom">Propuesta personalizada</option>
+              </select>
+              <span class="field-help">El preset llena los planes; después puedes editar cualquier campo.</span>
+            </label>
+
+            <div class="form-grid two-columns">
+              <label>
+                Cliente
+                <input name="proposalClient" value="The Warehouse" />
+              </label>
+              <label>
+                Fecha
+                <input name="proposalDate" type="date" />
+              </label>
+            </div>
+
+            <label>
+              Título de la propuesta
+              <input name="projectName" value="Desarrollo, Hosting y Mantenimiento Web" />
+            </label>
+
+            <label>
+              Resumen de la oferta
+              <textarea name="proposalIntro" rows="5">Para The Warehouse ofrecemos una oferta familiar especial con dos alternativas y contrato de 12 meses: un Plan Familiar Esencial de $75 mensuales más IVA y un Plan Familiar Profesional de $150 mensuales más IVA. Ambos incluyen desarrollo inicial, hosting administrado, SSL, soporte y mantenimiento.</textarea>
+            </label>
+
+            <label>
+              Objetivo
+              <textarea name="proposalObjective" rows="5">Desarrollar un sitio web moderno, visual y autoadministrable, orientado a presentar los servicios, proyectos y catálogo del cliente. El sitio funcionará como destino principal desde redes sociales, herramienta de captación y base para el crecimiento digital.</textarea>
+            </label>
+
+            <label>
+              Solución propuesta
+              <textarea name="proposalSolution" rows="5">El sitio se desarrollará en WordPress, utilizando una plantilla profesional como base y personalizándola para reflejar la identidad visual del cliente. La solución priorizará experiencia móvil, facilidad de administración, velocidad de carga y crecimiento futuro.</textarea>
+            </label>
+
+            <label>
+              Estructura del sitio <span class="optional">Un punto por línea</span>
+              <textarea name="siteStructure" rows="7">Home: presentación de la marca, servicios y llamados a la acción
+Projects: portafolio general y páginas individuales
+Servicios: descripción, metodología y formulario de contacto
+Catálogo: presentación visual organizada por categorías
+Ficha individual: fotografías, descripción y solicitud de cotización
+Nosotros: historia, filosofía y enfoque
+Contacto / Cotizar: formulario para captar oportunidades</textarea>
+            </label>
+
+            <label>
+              Servicios incluidos en todos los planes <span class="optional">Un punto por línea</span>
+              <textarea name="sharedServices" rows="8">Instalación y configuración de WordPress
+Adaptación de una plantilla profesional
+Presentación responsive para móvil, tablet y computadora
+Creación de las páginas acordadas
+Hosting administrado y certificado SSL
+Actualizaciones de WordPress, plantilla y plugins
+Copias de seguridad programadas
+Seguridad básica, monitoreo y soporte técnico</textarea>
+            </label>
+
+            <section class="plan-editor" aria-labelledby="plan-one-title">
+              <div class="plan-editor-heading">
+                <div>
+                  <p class="step">Plan 01</p>
+                  <h3 id="plan-one-title">Primera alternativa</h3>
+                </div>
+              </div>
+              <div class="form-grid two-columns">
+                <label>Nombre del plan<input name="planOneName" value="Plan Familiar Esencial" /></label>
+                <label>Mensualidad<input name="planOnePrice" value="$75 USD mensuales más IVA" /></label>
+              </div>
+              <label>Duración mínima<input name="planOneTerm" value="12 meses" /></label>
+              <label>Descripción<textarea name="planOneDescription" rows="4">Nuestra alternativa más económica y básica para publicar el sitio y mantenerlo funcionando correctamente.</textarea></label>
+              <label>Beneficios particulares <span class="optional">Un punto por línea</span><textarea name="planOneFeatures" rows="5">Personalización visual estándar de la plantilla
+Configuración básica de las secciones acordadas
+Mantenimiento y soporte técnico regular</textarea></label>
+              <label>No incluido <span class="optional">Un punto por línea</span><textarea name="planOneExclusions" rows="4">Compra o renovación del dominio
+Licencias premium
+Funcionalidad nueva fuera del alcance</textarea></label>
+            </section>
+
+            <label class="second-plan-toggle">
+              <input type="checkbox" name="includeSecondPlan" value="yes" checked />
+              <span><strong>Incluir una segunda alternativa</strong>Permite comparar dos planes en la misma propuesta.</span>
+            </label>
+
+            <section class="plan-editor" id="second-plan-fields" aria-labelledby="plan-two-title">
+              <div class="plan-editor-heading">
+                <div>
+                  <p class="step">Plan 02</p>
+                  <h3 id="plan-two-title">Segunda alternativa</h3>
+                </div>
+              </div>
+              <div class="form-grid two-columns">
+                <label>Nombre del plan<input name="planTwoName" value="Plan Familiar Profesional" /></label>
+                <label>Mensualidad<input name="planTwoPrice" value="$150 USD mensuales más IVA" /></label>
+              </div>
+              <label>Duración mínima<input name="planTwoTerm" value="12 meses" /></label>
+              <label>Descripción<textarea name="planTwoDescription" rows="4">Una alternativa más completa para fortalecer la presentación visual, el rendimiento y la medición del sitio.</textarea></label>
+              <label>Beneficios particulares <span class="optional">Un punto por línea</span><textarea name="planTwoFeatures" rows="8">Todo lo incluido en el Plan Familiar Esencial
+Mayor personalización visual
+Optimización de imágenes y rendimiento
+SEO técnico básico y analítica
+Monitoreo de disponibilidad y ambiente de pruebas
+Capacitación básica
+Soporte técnico prioritario
+Dominio estándar y licencias premium durante la vigencia</textarea></label>
+              <label>No incluido <span class="optional">Un punto por línea</span><textarea name="planTwoExclusions" rows="3">Funcionalidad nueva fuera del alcance
+Producción de fotografía, video o contenido masivo</textarea></label>
+            </section>
+
+            <label>
+              Condiciones económicas
+              <textarea name="paymentTerms" rows="5">Los precios indicados no incluyen IVA. El pago se realiza mensualmente por adelantado. No se contempla un cobro inicial adicional por el desarrollo descrito, siempre que el contrato se mantenga vigente durante los 12 meses.</textarea>
+            </label>
+
+            <label>
+              Próximo paso
+              <textarea name="nextStep" rows="5">Si alguna de las dos opciones resulta adecuada, podemos elegir el plan y definir juntos los detalles del sitio, el contenido inicial y el calendario de trabajo.
+
+Quedo atento a su decisión o cualquier comentario adicional.</textarea>
+            </label>
+          </form>
+        </div>
+
+        <aside class="preview-panel" aria-label="Vista previa">
+          <div class="preview-toolbar">
+            <div>
+              <p class="step">02 / Resultado</p>
+              <h2>Vista previa</h2>
+            </div>
+            <span class="status" id="save-status" role="status">Guardado local</span>
+          </div>
+
+          <div class="preview-frame-shell">
+            <iframe id="preview-frame" title="Vista previa del documento generado"></iframe>
+          </div>
+
+          <div class="actions">
+            <button type="button" class="button primary" id="copy-html">Copiar para correo</button>
+            <button type="button" class="button secondary" id="download-html">Descargar HTML</button>
+            <button type="button" class="button ghost" id="print-document">Imprimir / PDF</button>
+          </div>
+          <p class="action-help" id="action-help">
+            El archivo descargado usa estilos compatibles con los clientes de correo más comunes.
+          </p>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Hecho con amor y precisión por ElPuas Digital Crafts.</p>
+      <a href="https://elpuasdigitalcrafts.com/es/" target="_blank" rel="noreferrer">elpuasdigitalcrafts.com</a>
+    </footer>
+  </body>
+</html>
